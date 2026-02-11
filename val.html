@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            min-height: 60px;
+        }
+
+        button {
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: white;
+        }
+
+        #yesBtn {
+            background-color: #4caf50;
+            padding: 0.75rem 2rem;
+        }
+
+        #yesBtn:hover {
+            background-color: #45a049;
+        }
+
+        #yesBtn.expanded {
+            padding: 1.5rem 4rem;
+            font-size: 1.3rem;
+            background-color: #2e7d32;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            position: relative;
+        }
+
+        #noBtn:hover {
+            background-color: #da190b;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: #e91e63;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💝 Hi Nomy, will you be my Valentine? 💝</h1>
+        <div class="button-container">
+            <button id="yesBtn">Yes!</button>
+            <button id="noBtn">No</button>
+        </div>
+        <div class="success-message" id="successMsg">
+            ❤️ Yay! You made me the happiest person! ❤️
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const successMsg = document.getElementById('successMsg');
+
+        yesBtn.addEventListener('click', () => {
+            yesBtn.classList.add('expanded');
+            successMsg.style.display = 'block';
+        });
+
+        noBtn.addEventListener('mouseenter', () => {
+            const randomX = Math.random() * (window.innerWidth - 100);
+            const randomY = Math.random() * (window.innerHeight - 50);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
