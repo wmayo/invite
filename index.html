@@ -115,10 +115,7 @@
         yesBtn.addEventListener('click', async () => {
 
           await fetch("https://express-js-on-vercel-chi-three-11.vercel.app/notify", {
-            method: "POST",
-            headers: {
-              "Access-Control-Allow-Origin:": "*"
-            },
+            method: "POST"
         });
             yesBtn.classList.add('expanded');
             successMsg.style.display = 'block';
