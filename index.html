@@ -112,7 +112,11 @@
         const noBtn = document.getElementById('noBtn');
         const successMsg = document.getElementById('successMsg');
 
-        yesBtn.addEventListener('click', () => {
+        yesBtn.addEventListener('click', async () => {
+
+          await fetch("https://express-js-on-vercel-chi-three-11.vercel.app/api/notify", {
+            method: "POST"
+        });
             yesBtn.classList.add('expanded');
             successMsg.style.display = 'block';
         });
